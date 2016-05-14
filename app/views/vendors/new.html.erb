@@ -1,0 +1,15 @@
+<h2>Add New Vendor</h2>
+
+<hr />
+
+<%= form_for @vendor do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :placeholder => "Type the vendor name here" %>
+
+  <%= f.label :url %>
+  <%= f.text_field :url, :placeholder => "Type the URL here" %>
+
+  <%= f.label :logo %>
+  <%= f.text_field :logo, :placeholder => "Enter URL for logo here" %>
+  <%= f.submit "Add Vendor" %>
+<% end %>

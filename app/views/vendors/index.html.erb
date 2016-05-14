@@ -1,0 +1,20 @@
+<h2>Prackit Certified Vendors</h2>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>URL</th>
+      <th>Logo</th>
+    </tr>
+  </thead>
+<% @vendors.each do |vendor| %>
+  <tr>
+    <td><%= link_to vendor.name, vendor %></td>
+    <td><%= vendor.url %></td>
+    <td><%= image_tag(vendor.logo, width: "200") %></td>
+  </tr>
+<% end %>
+</table>
