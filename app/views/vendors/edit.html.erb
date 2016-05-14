@@ -2,14 +2,18 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @vendor do |f| %>
       <%= f.label :name %>
-      <%= f.text_field :name, :placeholder => "Type the vendor name here" %>
+      <%= f.text_field :name, :placeholder => "Type the vendor name here", class: 'form-control' %>
 
       <%= f.label :url %>
-      <%= f.text_field :url, :placeholder => "Type the URL here" %>
+      <%= f.text_field :url, :placeholder => "Type the URL here", class: 'form-control' %>
 
       <%= f.label :logo %>
-      <%= f.text_field :logo, :placeholder => "Enter URL for logo here" %>
-      <%= f.submit "Update Vendor" %>
+      <%= f.text_field :logo, :placeholder => "Enter URL for logo here", class: 'form-control' %>
+
+      <%= f.label :v_types, "Vendor Types" %>
+      <%= f.select(:v_types, options_from_collection_for_select(@vtypes, :id, :name, @vendor.v_types.map {|j| j.id}), {:include_blank => true}, {:multiple => true}) %>
+
+      <%= f.submit "Update Vendor", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

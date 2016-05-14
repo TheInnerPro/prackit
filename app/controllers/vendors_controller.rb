@@ -5,6 +5,7 @@ class VendorsController < ApplicationController
 
   def new
     @vendor = Vendor.new
+    @vtypes = VType.all.map { |vtype| [vtype.name, vtype.id] }
   end
 
   def create
@@ -22,11 +23,18 @@ class VendorsController < ApplicationController
 
   def edit
     @vendor = Vendor.find(params[:id])
+    @vtypes = VType.all
   end
 
   def update
     @vendor = Vendor.find(params[:id])
+    @vendor.v_types.delete_all
     if @vendor.update_attributes(vendor_params)
+      params[:vendor][:v_types].each do |k,v|
+        if !k.empty?
+          @vendor.v_types << VType.find(k)
+        end
+      end
       redirect_to @vendor
     else
       render 'edit'
@@ -41,6 +49,6 @@ class VendorsController < ApplicationController
   private
 
     def vendor_params
-      params.require(:vendor).permit(:name, :url, :logo)
+      params.require(:vendor).permit(:name, :url, :logo, :v_types)
     end
 end

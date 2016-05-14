@@ -1,3 +1,23 @@
 <h2><%= @vendor.name %> | <%= link_to 'Edit', edit_vendor_path(@vendor) %></h2>
-URL: <%= @vendor.url %><br />
-Logo: <%= image_tag(@vendor.logo, width: "200") %><br />
+<table>
+  <thead>
+    <tr>
+      <th>URL</th>
+      <th>Logo</th>
+      <th>Vendor Types</th>
+    </tr>
+  </thead>
+  <tr>
+    <td><%= @vendor.url %></td>
+    <td><%= image_tag(@vendor.logo, width: "200") %></td>
+    <% if @vendor.v_types.count > 0 %>
+    <td>
+      <% @vendor.v_types.each do |v| %>
+      <%= v.name %><br />
+      <% end %>
+    </td>
+    <% else %>
+    <td>Vendor not associated with any types</td>
+    <% end %>
+  </tr>
+</table>

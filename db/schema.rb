@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514163321) do
+ActiveRecord::Schema.define(version: 20160514191939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "v_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "v_types_vendors", id: false, force: :cascade do |t|
+    t.integer "vendor_id", null: false
+    t.integer "v_type_id", null: false
+  end
+
+  add_index "v_types_vendors", ["v_type_id", "vendor_id"], name: "index_v_types_vendors_on_v_type_id_and_vendor_id", unique: true, using: :btree
 
   create_table "vendors", force: :cascade do |t|
     t.string   "name"

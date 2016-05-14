@@ -1,0 +1,10 @@
+<h2>Add New Vendor Type</h2>
+
+<hr />
+
+<%= form_for @vtype do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :placeholder => "Type the vendor type here", class: "form-control" %>
+
+  <%= f.submit "Add Vendor Type", class: "btn btn-primary" %>
+<% end %>

@@ -4,12 +4,13 @@
 
 <%= form_for @vendor do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name, :placeholder => "Type the vendor name here" %>
+  <%= f.text_field :name, :placeholder => "Type the vendor name here", class: "form-control" %>
 
   <%= f.label :url %>
-  <%= f.text_field :url, :placeholder => "Type the URL here" %>
+  <%= f.text_field :url, :placeholder => "Type the URL here", class: "form-control" %>
 
   <%= f.label :logo %>
-  <%= f.text_field :logo, :placeholder => "Enter URL for logo here" %>
-  <%= f.submit "Add Vendor" %>
+  <%= f.text_field :logo, :placeholder => "Enter URL for logo here", class: "form-control" %>
+
+  <%= f.submit "Add Vendor", class: "btn btn-primary" %>
 <% end %>

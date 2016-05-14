@@ -1,0 +1,21 @@
+<h2>Vendor Types | <%= link_to "New Vendor Type", new_v_type_path %></h2>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+<% @vtypes.each do |vtype| %>
+  <tr>
+    <td><%= link_to vtype.name, vtype %></td>
+    <td><%= link_to "edit", edit_v_type_path(vtype) %>
+    <td><%= link_to "delete", vtype, method: :delete,
+                                      data: { confirm: "You sure?" } %>
+  </tr>
+<% end %>
+</table>

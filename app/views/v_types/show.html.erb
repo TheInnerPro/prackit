@@ -1,0 +1,21 @@
+<h2><%= @vtype.name %> | <%= link_to 'Edit', edit_vendor_path(@vtype) %></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Vendors</th>
+    </tr>
+  </thead>
+  <tr>
+    <td><%= @vtype.name %></td>
+    <% if @vtype.vendors.count > 0 %>
+    <td>
+      <% @vtype.vendors.each do |vendor| %>
+      <%= vendor.name %><br />
+      <% end %>
+    </td>
+    <% elsif %>
+    <td>No vendors with type</td>
+    <% end %>
+  </tr>
+</table>
