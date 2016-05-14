@@ -15,6 +15,8 @@
     <td><%= link_to vendor.name, vendor %></td>
     <td><%= vendor.url %></td>
     <td><%= image_tag(vendor.logo, width: "200") %></td>
+    <td><%= link_to "delete", vendor, method: :delete,
+                                      data: { confirm: "You sure?" } %>
   </tr>
 <% end %>
 </table>

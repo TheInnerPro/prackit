@@ -33,6 +33,11 @@ class VendorsController < ApplicationController
     end
   end
 
+  def destroy
+    Vendor.find(params[:id]).destroy
+    redirect_to vendors_url
+  end
+
   private
 
     def vendor_params
