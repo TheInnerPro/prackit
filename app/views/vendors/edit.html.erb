@@ -11,7 +11,7 @@
       <%= f.text_field :logo, :placeholder => "Enter URL for logo here", class: 'form-control' %>
 
       <%= f.label :v_types, "Vendor Types" %>
-      <%= f.select(:v_types, options_from_collection_for_select(@vtypes, :id, :name, @vendor.v_types.map {|j| j.id}), {:include_blank => true}, {:multiple => true}) %>
+      <%= f.select(:v_types, options_from_collection_for_select(@vtypes, :id, :name, @vendor.v_types.map {|j| j.id}), {}, {:multiple => true}) %>
 
       <%= f.submit "Update Vendor", class: "btn btn-primary" %>
     <% end %>

@@ -1,0 +1,8 @@
+<h2>Enter URL to track on Prackit</h2>
+<hr />
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label :q, "URL:" %>
+  <%= text_field :q, :q, class: "form-control" %>
+  <%= submit_tag "Track", class: "btn btn-primary" %>
+<% end %>
