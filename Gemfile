@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
-
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 
 gem 'bootstrap-sass', '3.2.0.0'
+
+gem 'puma'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
@@ -40,7 +43,26 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry-rails'
+  gem "codeclimate-test-reporter", require: nil
+  gem 'cucumber-rails', require: false
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'quiet_assets'
+  gem "bullet"
 end
+
+
+gem 'faker'
+gem 'kaminari'
+gem 'bcrypt'
+gem 'react-rails'
+gem 'annotate'
+gem 'rails-erd'
+gem 'underscore-rails'
+#should probably use another gem for jobs
+gem 'delayed_job_active_record'
+gem "daemons"
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -48,4 +70,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
